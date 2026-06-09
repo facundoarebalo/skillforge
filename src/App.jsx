@@ -1,11 +1,13 @@
-import { useState } from 'react'
 import AppRouter from './routes/AppRouter';
+import Navbar from './components/Navbar';
+import Home from './pages/Home/Home';
 
 function App() {
   return (
-
-
-    <AppRouter />
+    <div className='min-h-screen bg-zinc-950'>
+      <Navbar />
+      <AppRouter />
+    </div>
 
 
   );
