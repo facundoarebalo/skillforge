@@ -1,4 +1,4 @@
-const Button = ({ children, variant }) => {
+const Button = ({ children, variant, onClick }) => {
     const baseStyles =
         "border-2 border-zinc-600 px-4 py-2 rounded-lg hover:bg-zinc-700 transition-colors cursor-pointer";
 
@@ -9,7 +9,7 @@ const Button = ({ children, variant }) => {
 
     return (
 
-        <button className={`${baseStyles} ${variants[variant]}`}>
+        <button onClick={onClick} className={`${baseStyles} ${variants[variant]}`}>
             {children}
         </button>
 
