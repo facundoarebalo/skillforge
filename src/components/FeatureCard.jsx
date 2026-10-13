@@ -1,14 +1,11 @@
-const FeatureCard = ({ title, description, icon }) => {
+export default function TarjetaCaracteristica({ titulo, descripcion, icono }) {
     return (
-        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 hover:border-zinc-600 hover:-translate-y-1
-transition-all">
+        <article className="rounded-xl border border-zinc-800 bg-zinc-900 p-6 transition-all hover:-translate-y-1 hover:border-zinc-600">
             <div className="text-3xl">
-                {icon}
+                {icono}
             </div>
-            <h3 className="font-semibold text-xl">{title}</h3>
-            <p className="text-zinc-400 mt-2">{description}</p>
-        </div>
-    )
+            <h3 className="text-xl font-semibold">{titulo}</h3>
+            <p className="mt-2 text-zinc-400">{descripcion}</p>
+        </article>
+    );
 }
-
-export default FeatureCard

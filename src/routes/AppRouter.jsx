@@ -1,22 +1,20 @@
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes } from 'react-router-dom';
 
-import Home from "../pages/Home/Home"
-import Learn from "../pages/Learn/Learn"
-import Lesson from "../pages/Lesson/Lesson"
-import Profile from "../pages/Profile/Profile"
+import Inicio from '../pages/Home/Home';
+import Aprender from '../pages/Learn/Learn';
+import Leccion from '../pages/Lesson/Lesson';
+import Perfil from '../pages/Profile/Profile';
+import IniciarSesion from '../pages/Login/Login';
+import RutaProtegida from '../components/RutaProtegida';
 
-const AppRouter = () => {
-    return (
-        <>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/learn" element={<Learn />} />
-                <Route path="/lesson" element={<Lesson />} />
-                <Route path="/profile" element={<Profile />} />
-            </Routes>
-
-        </>
-    )
+export default function Enrutador({ progreso, sesion }) {
+  return (
+    <Routes>
+      <Route path="/" element={<Inicio usuario={sesion.usuario} />} />
+      <Route path="/learn" element={<RutaProtegida usuario={sesion.usuario}><Aprender progreso={progreso} /></RutaProtegida>} />
+      <Route path="/lesson/:rutaId" element={<RutaProtegida usuario={sesion.usuario}><Leccion progreso={progreso} /></RutaProtegida>} />
+      <Route path="/login" element={<IniciarSesion usuario={sesion.usuario} alIniciarSesion={sesion.iniciarSesion} />} />
+      <Route path="/profile" element={<RutaProtegida usuario={sesion.usuario}><Perfil progreso={progreso} usuario={sesion.usuario} /></RutaProtegida>} />
+    </Routes>
+  );
 }
-
-export default AppRouter
